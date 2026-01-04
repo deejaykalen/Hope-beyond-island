@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hope Beyond Islands (HBI)</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#f5f7fa;color:#333;line-height:1.7}
+
+/* HEADER */
+header{
+background:white;
+padding:15px 30px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+box-shadow:0 5px 20px rgba(0,0,0,.05)
+}
+header img{height:55px}
+header h1{font-size:1.2rem;color:#0f766e}
+
+/* HERO */
+.hero{
+background:linear-gradient(120deg,#0f766e,#16a34a);
+color:white;
+padding:90px 20px;
+text-align:center
+}
+.hero h2{font-size:2.8rem}
+.hero p{max-width:850px;margin:15px auto}
+.btn{
+display:inline-block;
+margin:10px;
+padding:14px 32px;
+background:white;
+color:#0f766e;
+border-radius:30px;
+text-decoration:none;
+font-weight:600
+}
+
+/* SECTIONS */
+section{padding:80px 20px;max-width:1200px;margin:auto}
+section h2{text-align:center;color:#0f766e;margin-bottom:40px;font-size:2.3rem}
+.center{max-width:900px;margin:auto;text-align:center}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px
+}
+.card{
+background:white;
+padding:30px;
+border-radius:18px;
+box-shadow:0 15px 40px rgba(0,0,0,.08)
+}
+
+/* GALLERY */
+.gallery-item{position:relative}
+.gallery-item img{width:100%;border-radius:16px}
+
+.delete-btn{
+position:absolute;
+top:10px;
+right:10px;
+background:red;
+color:white;
+border:none;
+padding:6px 10px;
+border-radius:50%;
+cursor:pointer
+}
+
+/* ADMIN */
+#adminControls{display:none;text-align:center;margin-bottom:25px}
+input,textarea,button{
+padding:12px;
+border-radius:10px;
+border:1px solid #ccc;
+margin:6px
+}
+
+/* FOOTER */
+footer{
+background:#0f766e;
+color:white;
+text-align:center;
+padding:40px 20px
+}
+
+/* FLOAT BUTTONS */
+.float{position:fixed;right:20px;z-index:999}
+.whatsapp{bottom:90px}
+.facebook{bottom:150px}
+.float a{
+display:block;
+background:#16a34a;
+color:white;
+padding:14px 18px;
+border-radius:50%;
+font-size:20px;
+text-decoration:none;
+margin-bottom:10px
+}
+.facebook a{background:#1877f2}
+</style>
+</head>
+
+<body>
+
+<header>
+<img id="siteLogo" src="" alt="HBI Logo" style="display:none">
+<h1>Hope Beyond Islands (HBI)</h1>
+</header>
+
+<div class="hero">
+<h2>Creating Hope Beyond Limitations</h2>
+<p>Supporting vulnerable children, families, and communities living in island and hard-to-reach areas of Uganda.</p>
+<a href="tel:+256700151512" class="btn">Donate</a>
+<a href="#contact" class="btn">Get Involved</a>
+</div>
+
+<section>
+<h2>Who We Are</h2>
+<div class="center">
+<p>
+Hope Beyond Islands (HBI) is a community-based organization working in Uganda to support children, families, and communities living in island and hard-to-reach areas. We believe that no child’s future should be limited by geography, poverty, or lack of access to essential services.
+</p>
+</div>
+</section>
+
+<section>
+<h2>Our Vision & Mission</h2>
+<div class="grid">
+<div class="card">
+<h3>🌍 Vision</h3>
+<p>A world where marginalized children and communities can access dignity, opportunity, and hope beyond limitations.</p>
+</div>
+<div class="card">
+<h3>🎯 Mission</h3>
+<p>To empower vulnerable children, women, and communities through inclusive programs in education, health, food security, protection, and sustainable livelihoods.</p>
+</div>
+</div>
+</section>
+
+<section>
+<h2>How We Work</h2>
+<div class="center">
+<p>
+Our work is grounded in direct engagement with communities and local leadership. We listen first, working closely with families to understand their priorities, challenges, and strengths. Through participatory approaches, we identify the most vulnerable households and co-design practical, culturally appropriate solutions.
+<br><br>
+We emphasize transparency, accountability, and community ownership in all our programs, ensuring that interventions are sustainable and locally driven. By partnering with individuals, institutions, and organizations, we strengthen service delivery and expand opportunities for long-term development. Our current focus includes island and hard-to-reach communities such as Buvuma District, with plans to grow as partnerships expand.
+</p>
+</div>
+</section>
+
+<section>
+<h2>Our Work Areas</h2>
+<div class="grid">
+<div class="card">📘 Education & Learning</div>
+<div class="card">🍽️ Food & Nutrition</div>
+<div class="card">🩺 Health & Community Well-Being</div>
+<div class="card">👧 Child Protection & Gender Equality</div>
+<div class="card">🌱 Agriculture & Livelihoods</div>
+<div class="card">🏠 Community Support</div>
+</div>
+</section>
+
+<section>
+<h2>Image Gallery</h2>
+
+<div id="adminControls">
+<input type="file" id="logoInput" accept="image/*">
+<button onclick="uploadLogo()">Upload Logo</button><br>
+
+<input type="file" id="imageInput" accept="image/*">
+<button onclick="addImage()">Add Image</button>
+<button onclick="logout()">Logout Admin</button>
+</div>
+
+<div class="grid" id="gallery"></div>
+</section>
+
+<section id="contact">
+<h2>Contact Us</h2>
+<form action="mailto:hopebeyondislands@gmail.com" method="post" enctype="text/plain" class="center">
+<input type="text" name="Name" placeholder="Your Name" required><br>
+<input type="email" name="Email" placeholder="Your Email" required><br>
+<textarea name="Message" rows="5" placeholder="Your Message"></textarea><br>
+<button type="submit">Send Message</button>
+</form>
+</section>
+
+<footer>
+<p>📧 hopebeyondislands@gmail.com</p>
+<p>📍 Uganda</p>
+<p>© 2026 Hope Beyond Islands (HBI)</p>
+</footer>
+
+<div class="float whatsapp">
+<a href="https://wa.me/256700151512" target="_blank">💬</a>
+</div>
+<div class="float facebook">
+<a href="https://www.facebook.com/profile.php?id=61576887463770" target="_blank">📘</a>
+</div>
+
+<script>
+const gallery=document.getElementById("gallery");
+const adminControls=document.getElementById("adminControls");
+const logo=document.getElementById("siteLogo");
+const isAdmin=localStorage.getItem("hbiAdmin")==="true";
+
+/* SHOW ADMIN */
+if(isAdmin) adminControls.style.display="block";
+
+/* LOAD LOGO */
+const savedLogo=localStorage.getItem("hbiLogo");
+if(savedLogo){logo.src=savedLogo;logo.style.display="block";}
+
+/* UPLOAD LOGO */
+function uploadLogo(){
+if(!isAdmin) return;
+const file=document.getElementById("logoInput").files[0];
+if(!file) return;
+const reader=new FileReader();
+reader.onload=e=>{
+localStorage.setItem("hbiLogo",e.target.result);
+logo.src=e.target.result;
+logo.style.display="block";
+};
+reader.readAsDataURL(file);
+}
+
+/* GALLERY */
+function loadImages(){
+gallery.innerHTML="";
+const images=JSON.parse(localStorage.getItem("hbiGallery"))||[];
+images.forEach((img,i)=>{
+gallery.innerHTML+=`
+<div class="gallery-item">
+<img src="${img}">
+${isAdmin?`<button class="delete-btn" onclick="deleteImage(${i})">✖</button>`:""}
+</div>`;
+});
+}
+
+function addImage(){
+if(!isAdmin) return;
+const file=document.getElementById("imageInput").files[0];
+if(!file) return;
+const reader=new FileReader();
+reader.onload=e=>{
+const images=JSON.parse(localStorage.getItem("hbiGallery"))||[];
+images.push(e.target.result);
+localStorage.setItem("hbiGallery",JSON.stringify(images));
+loadImages();
+};
+reader.readAsDataURL(file);
+}
+
+function deleteImage(i){
+const images=JSON.parse(localStorage.getItem("hbiGallery"))||[];
+images.splice(i,1);
+localStorage.setItem("hbiGallery",JSON.stringify(images));
+loadImages();
+}
+
+function logout(){
+localStorage.removeItem("hbiAdmin");
+location.reload();
+}
+
+loadImages();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HBI Admin Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+background:linear-gradient(120deg,#0f766e,#16a34a);
+font-family:Arial,sans-serif;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+margin:0
+}
+.login{
+background:white;
+padding:40px;
+border-radius:18px;
+width:100%;
+max-width:380px;
+text-align:center
+}
+input,button{
+width:100%;
+padding:14px;
+margin-top:15px;
+border-radius:10px;
+border:1px solid #ccc
+}
+button{
+background:#0f766e;
+color:white;
+border:none;
+cursor:pointer
+}
+.error{color:red;font-size:14px}
+</style>
+</head>
+
+<body>
+
+<div class="login">
+<h2>HBI Admin Login</h2>
+<input type="password" id="pass" placeholder="Admin Password">
+<button onclick="login()">Login</button>
+<p class="error" id="err"></p>
+</div>
+
+<script>
+const ADMIN_PASSWORD="hbiadmin"; // CHANGE THIS
+
+function login(){
+if(document.getElementById("pass").value===ADMIN_PASSWORD){
+localStorage.setItem("hbiAdmin","true");
+location.href="index.html";
+}else{
+document.getElementById("err").innerText="Incorrect password";
+}
+}
+</script>
+
+</body>
+</html>
