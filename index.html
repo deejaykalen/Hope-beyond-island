@@ -10,7 +10,20 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
 body{background:#f5f7fa;color:#333;line-height:1.7}
+<style>
+  .main-title {
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
 
+  @media (max-width: 768px) {
+    .main-title {
+      font-size: 2.5rem;
+    }
+  }
+</style>
 /* HEADER */
 header{
 background:white;
@@ -116,7 +129,7 @@ margin-bottom:10px
 
 <header>
 <img id="siteLogo" src="" alt="HBI Logo" style="display:none">
-<h1>Hope Beyond Islands (HBI)</h1>
+<h1 class="main-title">Hope Beyond Islands</h1>
 </header>
 
 <div class="hero">
